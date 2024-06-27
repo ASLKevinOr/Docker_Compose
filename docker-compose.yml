@@ -35,6 +35,10 @@ services:
   graylog:
     image: graylog/graylog:6.0.3
     container_name: graylog
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp:10.100.1.23:514"
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
